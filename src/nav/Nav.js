@@ -9,6 +9,7 @@ import { FiLogIn } from "react-icons/fi";
 import { FaShopify } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
+import Register from "../register/Register";
 
 const Nav = () => {
   useEffect(() => {
@@ -46,7 +47,7 @@ const Nav = () => {
             </a>
           </li>
           <li>
-            <a href="collapsible.html">
+            <a className="modal-trigger" href="#modal1">
               {log ? <span></span> : <span>Register</span>}
             </a>
           </li>
