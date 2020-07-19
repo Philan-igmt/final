@@ -5,11 +5,7 @@ function About() {
   return (
     <div className="allabout">
       <div className="aboutdiv">
-        <img
-          src="https://cdn.pixabay.com/photo/2020/05/06/06/18/blue-5136251_1280.jpg"
-          alt=""
-          style={{ width: "100%", height: "400px" }}
-        />
+        <h1 className="thisabout">About</h1>
       </div>
 
       <iframe

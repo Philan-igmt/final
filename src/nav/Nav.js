@@ -16,11 +16,12 @@ const Nav = () => {
     //initializing materialize css JS
     M.AutoInit();
   });
-  const [log, setLog] = useState(false);
+
+  const [log, setLog] = useState(true);
   return (
     <nav>
       <div className="nav-wrapper container black">
-        <a href="#" className="brand-logo">
+        <a href="#" className="brand-logo ">
           <span>Books</span>
           <span className="library">Library</span>
         </a>
@@ -43,7 +44,14 @@ const Nav = () => {
           </li>
           <li>
             <a href="collapsible.html">
-              {log ? <span>logout</span> : <span>login</span>}
+              {log ? (
+                <div>
+                  <span>logout</span>
+                  <span className="btn btn-floating green">PS</span>
+                </div>
+              ) : (
+                <span>login</span>
+              )}
             </a>
           </li>
           <li>
@@ -58,6 +66,7 @@ const Nav = () => {
               data-tooltip="cart"
               href="collapsible.html"
             >
+              cart
               <FaOpencart size="2rem" color="white" />
             </a>
           </li>
@@ -100,7 +109,7 @@ const Nav = () => {
           </a>
         </li>
         <li>
-          <a href="collapsible.html">
+          <a href="register">
             {log ? (
               <span></span>
             ) : (
@@ -123,6 +132,41 @@ const Nav = () => {
           </a>
         </li>
       </ul>
+      {/* register modal */}
+      <div id="modal1" className="modal">
+        <form style={{ width: "50%", color: "black" }} className="ml-2">
+          <div className="input-field col s12 black-text">
+            <input
+              id="email"
+              type="email"
+              className="validate"
+              style={{ borderBottom: "black 2px solid", marginLeft: "20px" }}
+            />
+            <label htmlFor="email">
+              <i className="material-icons black-text left">email</i>Email
+            </label>
+          </div>
+          <div className="input-field col s12 black-text">
+            <input
+              id="password"
+              type="password"
+              className="validate"
+              style={{ borderBottom: "black 2px solid", marginLeft: "20px" }}
+            />
+            <label htmlFor="password">
+              <i className="material-icons black-text left">lock</i>Password
+            </label>
+          </div>
+          <button
+            style={{ marginLeft: "20px" }}
+            className="btn waves-effect waves-light black"
+            type="submit"
+            name="action"
+          >
+            Register
+          </button>
+        </form>
+      </div>
     </nav>
   );
 };
