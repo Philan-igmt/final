@@ -13,34 +13,36 @@ function About() {
         style={{ width: "100%", height: "400px" }}
       ></iframe>
       <h4>Our Mission</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex
-        tenetur tempore minus et alias numquam laudantium omnis. Aliquid quidem
-        voluptates et possimus consequatur adipisci voluptate, neque est
-        voluptatem quaerat ad sit nemo quam officia optio non. Doloribus sunt
-        consequuntur fuga asperiores eos non, harum voluptas ad voluptatem optio
-        praesentium ut ea ducimus impedit, commodi deleniti, ratione illum quia
-        deserunt earum. Nisi perferendis possimus eveniet, eligendi cumque ea,
-        error maiores praesentium repudiandae deleniti perspiciatis voluptate
-        ipsam optio ratione atque! Quaerat eius nisi itaque placeat at dicta,
-        pariatur sunt saepe, laboriosam voluptas minima tempora libero odit
-        velit aperiam iste illo dignissimos!
-      </p>
-      <h4>Our Vision</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus iste
-        blanditiis perferendis omnis quam consequatur, maiores labore numquam
-        iusto quas porro odio adipisci amet quo veritatis nisi eveniet
-        voluptatibus sapiente fuga dignissimos iure aut quidem temporibus!
-        Architecto obcaecati maxime voluptatum voluptatem culpa distinctio
-        consectetur nam. Illum explicabo vero dolorum velit optio magnam
-        architecto, obcaecati aspernatur natus enim officiis quas nobis mollitia
-        itaque corrupti laboriosam totam eveniet. Velit neque suscipit sequi,
-        ullam, consectetur repellat obcaecati voluptatum blanditiis tenetur
-        similique a sint. Facilis earum sequi illum illo itaque odit sint
-        nesciunt, libero quaerat est harum autem quo, vitae obcaecati molestias,
-        repudiandae ex?
-      </p>
+      <div className="container">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex
+          tenetur tempore minus et alias numquam laudantium omnis. Aliquid
+          quidem voluptates et possimus consequatur adipisci voluptate, neque
+          est voluptatem quaerat ad sit nemo quam officia optio non. Doloribus
+          sunt consequuntur fuga asperiores eos non, harum voluptas ad
+          voluptatem optio praesentium ut ea ducimus impedit, commodi deleniti,
+          ratione illum quia deserunt earum. Nisi perferendis possimus eveniet,
+          eligendi cumque ea, error maiores praesentium repudiandae deleniti
+          perspiciatis voluptate ipsam optio ratione atque! Quaerat eius nisi
+          itaque placeat at dicta, pariatur sunt saepe, laboriosam voluptas
+          minima tempora libero odit velit aperiam iste illo dignissimos!
+        </p>
+        <h4>Our Vision</h4>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus iste
+          blanditiis perferendis omnis quam consequatur, maiores labore numquam
+          iusto quas porro odio adipisci amet quo veritatis nisi eveniet
+          voluptatibus sapiente fuga dignissimos iure aut quidem temporibus!
+          Architecto obcaecati maxime voluptatum voluptatem culpa distinctio
+          consectetur nam. Illum explicabo vero dolorum velit optio magnam
+          architecto, obcaecati aspernatur natus enim officiis quas nobis
+          mollitia itaque corrupti laboriosam totam eveniet. Velit neque
+          suscipit sequi, ullam, consectetur repellat obcaecati voluptatum
+          blanditiis tenetur similique a sint. Facilis earum sequi illum illo
+          itaque odit sint nesciunt, libero quaerat est harum autem quo, vitae
+          obcaecati molestias, repudiandae ex?
+        </p>
+      </div>
     </div>
   );
 }

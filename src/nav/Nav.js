@@ -17,7 +17,7 @@ const Nav = () => {
     M.AutoInit();
   });
 
-  const [log, setLog] = useState(true);
+  const [log, setLog] = useState(false);
   return (
     <nav>
       <div className="nav-wrapper container black">
