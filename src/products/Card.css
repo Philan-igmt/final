@@ -1,0 +1,29 @@
+.card {
+  width: 300px;
+  justify-content: center;
+  height: auto;
+  margin: 20px;
+  border: orchid 2px solid;
+  color: white;
+  background-color: black;
+}
+
+.children {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.products {
+  background-image: url("https://goodereader.com/blog/uploads/images/https-_specials-images.forbesimg.com_dam_imageserve_794015686_960x0.jpg-fitscale.jpg");
+}
+
+.btn {
+  margin-bottom: 20px;
+  background-color: red;
+}
+.btn:hover {
+  margin-bottom: 20px;
+  background-color: rgb(0, 255, 149);
+  color: black;
+}

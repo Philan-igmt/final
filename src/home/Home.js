@@ -10,7 +10,10 @@ function Home() {
         <span className="thiss">Invest in </span>
         <span className="red-text">Knowledge</span>
       </h1>
-      <button className="waves-effect waves-black btn-large red">
+      <button
+        style={{ zIndex: "0" }}
+        className="waves-effect waves-black btn-large red"
+      >
         Shop now
       </button>
     </div>
