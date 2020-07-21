@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
-import Aos from "aos";
+// import Aos from "aos";
 import "aos/dist/aos.css";
 
 import "./App.css";
@@ -10,6 +10,7 @@ import Home from "./home/Home";
 import Cart from "./Cart/Cart";
 import Products from "./products/Products";
 import About from "./about/About";
+import { ProductProvider } from "./ProductContext";
 
 const App = () => {
   useEffect(() => {
@@ -17,13 +18,15 @@ const App = () => {
     M.AutoInit();
   });
   return (
-    <div className="App">
-      <Nav />
-      <Home />
-      <About />
-      <Cart />
-      <Products />
-    </div>
+    <ProductProvider>
+      <div className="App">
+        <Nav />
+        <Home />
+        <About />
+        <Cart />
+        <Products />
+      </div>
+    </ProductProvider>
   );
 };
 

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./Card.css";
 import { FaOpencart } from "react-icons/fa";
+import { ProductContext } from "../ProductContext";
 
 const Card = ({ books }) => {
   return (
