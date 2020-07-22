@@ -3,7 +3,7 @@ import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 // import Aos from "aos";
 import "aos/dist/aos.css";
-
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "./App.css";
 import Nav from "./nav/Nav";
 import Home from "./home/Home";
@@ -18,15 +18,19 @@ const App = () => {
     M.AutoInit();
   });
   return (
-    <ProductProvider>
-      <div className="App">
-        <Nav />
-        <Home />
-        <About />
-        <Cart />
-        <Products />
-      </div>
-    </ProductProvider>
+    <Router>
+      <ProductProvider>
+        <div className="App">
+          <Nav />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/cart" component={Cart} />
+            <Route path="/products" component={Products} />
+          </Switch>
+        </div>
+      </ProductProvider>
+    </Router>
   );
 };
 

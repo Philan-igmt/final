@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
 import "./Nav.css";
@@ -9,9 +9,15 @@ import { FiLogIn } from "react-icons/fi";
 import { FaShopify } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
-import Register from "../register/Register";
+import { Link } from "react-router-dom";
+// import Register from "../register/Register";
+// import Products from "../products/Products";
+import { ProductContext } from "../ProductContext";
 
 const Nav = () => {
+  const [products, setProducts] = useContext(ProductContext);
+  const [cart, setCart] = useContext(ProductContext);
+
   useEffect(() => {
     //initializing materialize css JS
     M.AutoInit();
@@ -21,12 +27,12 @@ const Nav = () => {
   return (
     <nav>
       <div className="nav-wrapper container black">
-        <a href="#" className="brand-logo ">
+        <Link to="/" className="brand-logo ">
           <span>Books</span>
           <span className="library">Library</span>
-        </a>
+        </Link>
         <a
-          href="#"
+          to="#"
           className="sidenav-trigger show-on-med-and-down"
           data-target="slide-out"
         >
@@ -34,16 +40,16 @@ const Nav = () => {
         </a>
         <ul id="nav-mobile" className="right hide-on-med-and-down ">
           <li className="">
-            <a href="sass.html">Home</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="badges.html">About</a>
+            <Link to="/about">About</Link>
           </li>
           <li>
-            <a href="collapsible.html">Shop</a>
+            <Link to="/products">Shop</Link>
           </li>
           <li>
-            <a href="collapsible.html">
+            <Link to="collapsible.html">
               {log ? (
                 <div>
                   <span>logout</span>
@@ -52,22 +58,28 @@ const Nav = () => {
               ) : (
                 <span>login</span>
               )}
-            </a>
+            </Link>
           </li>
           <li>
-            <a className="modal-trigger" href="#modal1">
+            <Link className="modal-trigger" to="#modal1">
               {log ? <span></span> : <span>Register</span>}
-            </a>
+            </Link>
           </li>
           <li>
             <a
               className="tooltipped"
               data-position="bottom"
               data-tooltip="cart"
-              href="collapsible.html"
+              to="collapsible.html"
             >
               cart
               <FaOpencart size="2rem" color="white" />
+              <sup
+                style={{ padding: "5px", borderRadius: "50%" }}
+                className="new red badge"
+              >
+                {cart.length}
+              </sup>
             </a>
           </li>
         </ul>
@@ -76,25 +88,25 @@ const Nav = () => {
       {/* side nav */}
       <ul id="slide-out" className="sidenav">
         <li className="">
-          <a href="sass.html">
+          <Link to="sass.html">
             <FaHome size="2rem" color="black" />
             Home
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="badges.html">
+          <Link to="badges.html">
             <FaInfo size="2rem" color="black" />
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="collapsible.html">
+          <Link to="collapsible.html">
             <FaShopify size="2rem" color="black" />
             Shop
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="collapsible.html">
+          <Link to="collapsible.html">
             {log ? (
               <span>
                 <FaPowerOff size="2rem" color="black" />
@@ -106,10 +118,10 @@ const Nav = () => {
                 login
               </span>
             )}
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="register">
+          <a href="#modal1">
             {log ? (
               <span></span>
             ) : (
@@ -125,7 +137,7 @@ const Nav = () => {
             className="tooltipped"
             data-position="bottom"
             data-tooltip="cart"
-            href="collapsible.html"
+            to="collapsible.html"
           >
             <FaOpencart size="2rem" color="black" />
             Cart

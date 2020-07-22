@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import Footer from "../footer/Footer";
 
 function About() {
   return (
@@ -15,34 +16,20 @@ function About() {
       <h4>Our Mission</h4>
       <div className="container">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ex
-          tenetur tempore minus et alias numquam laudantium omnis. Aliquid
-          quidem voluptates et possimus consequatur adipisci voluptate, neque
-          est voluptatem quaerat ad sit nemo quam officia optio non. Doloribus
-          sunt consequuntur fuga asperiores eos non, harum voluptas ad
-          voluptatem optio praesentium ut ea ducimus impedit, commodi deleniti,
-          ratione illum quia deserunt earum. Nisi perferendis possimus eveniet,
-          eligendi cumque ea, error maiores praesentium repudiandae deleniti
-          perspiciatis voluptate ipsam optio ratione atque! Quaerat eius nisi
-          itaque placeat at dicta, pariatur sunt saepe, laboriosam voluptas
-          minima tempora libero odit velit aperiam iste illo dignissimos!
+          Our mission is to provide quality but affordable books for education,
+          entertainment, self-development and self-fulfillment; to all when the
+          need arises by providing a wide range of books to satisfy our
+          students,Making our books accessible in the market.
         </p>
         <h4>Our Vision</h4>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus iste
-          blanditiis perferendis omnis quam consequatur, maiores labore numquam
-          iusto quas porro odio adipisci amet quo veritatis nisi eveniet
-          voluptatibus sapiente fuga dignissimos iure aut quidem temporibus!
-          Architecto obcaecati maxime voluptatum voluptatem culpa distinctio
-          consectetur nam. Illum explicabo vero dolorum velit optio magnam
-          architecto, obcaecati aspernatur natus enim officiis quas nobis
-          mollitia itaque corrupti laboriosam totam eveniet. Velit neque
-          suscipit sequi, ullam, consectetur repellat obcaecati voluptatum
-          blanditiis tenetur similique a sint. Facilis earum sequi illum illo
-          itaque odit sint nesciunt, libero quaerat est harum autem quo, vitae
-          obcaecati molestias, repudiandae ex?
+          Our vision is to become the largest and leading book distributor in
+          South Africa and around the world when time goes by. And providing
+          consultancy services to local and underground publishers who want to
+          expand their services to other booksellers.
         </p>
       </div>
+      <Footer />
     </div>
   );
 }
