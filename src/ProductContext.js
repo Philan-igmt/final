@@ -71,6 +71,7 @@ export class ProductProvider extends Component {
       },
     ],
     cart: [],
+    total: 5,
   };
 
   addCart = (id) => {
@@ -96,6 +97,7 @@ export class ProductProvider extends Component {
       }
     });
     this.setState({ cart: cart });
+    this.addTotal();
   };
 
   minus = (id) => {
@@ -106,6 +108,7 @@ export class ProductProvider extends Component {
       }
     });
     this.setState({ cart: cart });
+    this.addTotal();
   };
 
   removeItem = (id) => {
@@ -116,13 +119,32 @@ export class ProductProvider extends Component {
       }
     });
     this.setState({ cart: cart });
+    this.addTotal();
   };
+
+  addTotal = () => {
+    const { cart } = this.state;
+    const results = cart.reduce((prev, product) => {
+      return prev + product.prize * product.count;
+    }, 0);
+    this.setState({ total: results });
+  };
+
   render() {
-    const { products, cart } = this.state;
-    const { addCart, minus, add, removeItem } = this;
+    const { products, cart, total } = this.state;
+    const { addCart, minus, add, removeItem, addTotal } = this;
     return (
       <ProductContext.Provider
-        value={{ products, cart, addCart, removeItem, minus, add }}
+        value={{
+          products,
+          cart,
+          total,
+          addCart,
+          removeItem,
+          minus,
+          add,
+          addTotal,
+        }}
       >
         {this.props.children}
       </ProductContext.Provider>
