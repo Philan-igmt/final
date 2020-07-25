@@ -15,8 +15,7 @@ import { Link } from "react-router-dom";
 import { ProductContext } from "../ProductContext";
 
 const Nav = () => {
-  const [products, setProducts] = useContext(ProductContext);
-  const [cart, setCart] = useContext(ProductContext);
+  const cart = useContext(ProductContext);
 
   useEffect(() => {
     //initializing materialize css JS
@@ -49,7 +48,7 @@ const Nav = () => {
             <Link to="/products">Shop</Link>
           </li>
           <li>
-            <Link to="collapsible.html">
+            <Link className="modal-trigger" to="#modal1">
               {log ? (
                 <div>
                   <span>logout</span>
@@ -66,11 +65,11 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <a
+            <Link
               className="tooltipped"
               data-position="bottom"
               data-tooltip="cart"
-              to="collapsible.html"
+              to="/cart"
             >
               cart
               <FaOpencart size="2rem" color="white" />
@@ -80,7 +79,7 @@ const Nav = () => {
               >
                 {cart.length}
               </sup>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
@@ -121,7 +120,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <a href="#modal1">
+          <a className="modal-trigger" href="#modal1">
             {log ? (
               <span></span>
             ) : (
@@ -133,52 +132,17 @@ const Nav = () => {
           </a>
         </li>
         <li>
-          <a
+          <Link
             className="tooltipped"
             data-position="bottom"
             data-tooltip="cart"
-            to="collapsible.html"
+            to="/cart"
           >
             <FaOpencart size="2rem" color="black" />
             Cart
-          </a>
+          </Link>
         </li>
       </ul>
-      {/* register modal */}
-      <div id="modal1" className="modal">
-        <form style={{ width: "50%", color: "black" }} className="ml-2">
-          <div className="input-field col s12 black-text">
-            <input
-              id="email"
-              type="email"
-              className="validate"
-              style={{ borderBottom: "black 2px solid", marginLeft: "20px" }}
-            />
-            <label htmlFor="email">
-              <i className="material-icons black-text left">email</i>Email
-            </label>
-          </div>
-          <div className="input-field col s12 black-text">
-            <input
-              id="password"
-              type="password"
-              className="validate"
-              style={{ borderBottom: "black 2px solid", marginLeft: "20px" }}
-            />
-            <label htmlFor="password">
-              <i className="material-icons black-text left">lock</i>Password
-            </label>
-          </div>
-          <button
-            style={{ marginLeft: "20px" }}
-            className="btn waves-effect waves-light black"
-            type="submit"
-            name="action"
-          >
-            Register
-          </button>
-        </form>
-      </div>
     </nav>
   );
 };

@@ -17,3 +17,7 @@
   width: 400px;
   height: 100px;
 }
+
+.material-icons {
+  text-shadow: 0;
+}

@@ -1,26 +1,39 @@
-import React, { useState, useContext } from "react";
+import React, { Component } from "react";
 import { ProductContext } from "../ProductContext";
+import { FaOpencart } from "react-icons/fa";
 
-import Card from "./Card";
-import "./Card.css";
+export class Products extends Component {
+  static contextType = ProductContext;
 
-const Products = () => {
-  const [products, setProducts] = useContext(ProductContext);
-  const list = products.map((book) => (
-    <div key={book.id}>
-      <Card books={book} />
-    </div>
-  ));
-  return (
-    <div className="products">
-      <div className="aboutdiv">
-        <h1 className="thisabout center">Products </h1>
+  render() {
+    const { products } = this.context;
+    return (
+      <div className="products">
+        {products.map((product) => (
+          <div key={product.id} className="card" style={{ width: "300px" }}>
+            <div className="card-image">
+              <img
+                src={product.image}
+                style={{ width: "100%", height: "200px" }}
+              />
+              <span className="card-title">{product.name}</span>
+            </div>
+            <div className="card-content">
+              <p>{product.prize}</p>
+            </div>
+            <div>
+              <button
+                onClick={() => this.context.addCart(product.id)}
+                className="btn"
+              >
+                add to cart <FaOpencart size="2rem" color="white" />
+              </button>
+            </div>
+          </div>
+        ))}
       </div>
-      <div className="container">
-        <div className="children center">{list}</div>
-      </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 export default Products;

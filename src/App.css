@@ -16,3 +16,7 @@
   background: linear-gradient(transparent, rgb(98, 206, 56));
   border-radius: 6px;
 }
+
+p {
+  margin: 40px 0;
+}
