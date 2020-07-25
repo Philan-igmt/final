@@ -71,7 +71,7 @@ export class ProductProvider extends Component {
       },
     ],
     cart: [],
-    total: 5,
+    total: 0,
   };
 
   addCart = (id) => {
@@ -129,6 +129,23 @@ export class ProductProvider extends Component {
     }, 0);
     this.setState({ total: results });
   };
+
+  //for the local storage
+  componentDidUpdate() {
+    localStorage.setItem("cart_data", JSON.stringify(this.state.cart));
+    localStorage.setItem("total_data", JSON.stringify(this.state.total));
+  }
+
+  componentDidMount() {
+    const cart_data = JSON.parse(localStorage.getItem("cart_data"));
+    if (cart_data !== null) {
+      this.setState({ cart: cart_data });
+    }
+    const total_data = JSON.parse(localStorage.getItem("total_data"));
+    if (total_data !== null) {
+      this.setState({ total: total_data });
+    }
+  }
 
   render() {
     const { products, cart, total } = this.state;
