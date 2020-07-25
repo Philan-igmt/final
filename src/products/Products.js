@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { ProductContext } from "../ProductContext";
 import { FaOpencart } from "react-icons/fa";
+import "./Products.css";
 
 export class Products extends Component {
   static contextType = ProductContext;
@@ -9,8 +10,15 @@ export class Products extends Component {
     const { products } = this.context;
     return (
       <div className="products">
+        <div className="aboutdiv">
+          <h1 className="thisabout center">Products</h1>
+        </div>
         {products.map((product) => (
-          <div key={product.id} className="card" style={{ width: "300px" }}>
+          <div
+            key={product.id}
+            className="card center"
+            style={{ width: "300px" }}
+          >
             <div className="card-image">
               <img
                 src={product.image}
@@ -19,7 +27,7 @@ export class Products extends Component {
               <span className="card-title">{product.name}</span>
             </div>
             <div className="card-content">
-              <p>{product.prize}</p>
+              <p>R{product.prize}</p>
             </div>
             <div>
               <button

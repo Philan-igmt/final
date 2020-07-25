@@ -10,12 +10,10 @@ import { FaShopify } from "react-icons/fa";
 import { FaPowerOff } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
-// import Register from "../register/Register";
-// import Products from "../products/Products";
 import { ProductContext } from "../ProductContext";
 
 const Nav = () => {
-  const cart = useContext(ProductContext);
+  const state = useContext(ProductContext);
 
   useEffect(() => {
     //initializing materialize css JS
@@ -77,7 +75,7 @@ const Nav = () => {
                 style={{ padding: "5px", borderRadius: "50%" }}
                 className="new red badge"
               >
-                {cart.length}
+                {state.cart.length}
               </sup>
             </Link>
           </li>

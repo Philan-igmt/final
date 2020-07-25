@@ -1,7 +1,7 @@
 import React from "react";
 import "./Home.css";
-import Aos from "aos";
 import "aos/dist/aos.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
@@ -14,7 +14,7 @@ function Home() {
         style={{ zIndex: "0" }}
         className="waves-effect waves-black btn-large red"
       >
-        Shop now
+        <Link to="/products">Shop now</Link>
       </button>
     </div>
   );
