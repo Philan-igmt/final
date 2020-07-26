@@ -11,6 +11,7 @@ export class ProductProvider extends Component {
       products: [],
       cart: [],
       total: 0,
+      register: false,
     };
   }
 
@@ -86,6 +87,7 @@ export class ProductProvider extends Component {
       this.setState({ total: total_data });
     }
 
+    //getting the products from the database
     const me = async () => {
       fetch("/products")
         .then((res) => res.json())

@@ -23,9 +23,11 @@ export class Cart extends Component {
             Cart is empty!!! <MdRemoveShoppingCart color="red" size="4rem" />
           </h3>
           <span className="buttonn">
-            <Link to="/products">
-              <button className="cartbtn">go back to shop</button>{" "}
-            </Link>
+            <div className="center">
+              <Link to="/products">
+                <button className="cartbtn">go back to shop</button>{" "}
+              </Link>{" "}
+            </div>
           </span>
         </div>
       );

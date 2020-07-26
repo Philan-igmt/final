@@ -9,7 +9,6 @@ router.post("/", async (req, res) => {
     name: req.body.name,
     price: req.body.price,
     image: req.body.image,
-    count: req.body.count,
   });
   //save to database
   try {

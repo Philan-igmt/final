@@ -11,6 +11,7 @@ import { FaPowerOff } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../ProductContext";
+import Register from "../register/Register";
 
 const Nav = () => {
   const state = useContext(ProductContext);
@@ -46,7 +47,7 @@ const Nav = () => {
             <Link to="/products">Shop</Link>
           </li>
           <li>
-            <Link className="modal-trigger" to="#modal1">
+            <Link className="modal-trigger" onClick={state.register}>
               {log ? (
                 <div>
                   <span>logout</span>
@@ -58,8 +59,8 @@ const Nav = () => {
             </Link>
           </li>
           <li>
-            <Link className="modal-trigger" to="#modal1">
-              {log ? <span></span> : <span>Register</span>}
+            <Link>
+              {log ? <span></span> : <Link to="/register">Register</Link>}
             </Link>
           </li>
           <li>
@@ -141,6 +142,8 @@ const Nav = () => {
           </Link>
         </li>
       </ul>
+
+      {/* register modal */}
     </nav>
   );
 };
