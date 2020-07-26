@@ -84,14 +84,14 @@ const Nav = () => {
 
       {/* side nav */}
       <ul id="slide-out" className="sidenav">
-        <li className="">
-          <Link to="sass.html">
+        <li>
+          <Link to="/">
             <FaHome size="2rem" color="black" />
             Home
           </Link>
         </li>
         <li>
-          <Link to="badges.html">
+          <Link to="/about">
             <FaInfo size="2rem" color="black" />
             About
           </Link>
@@ -103,7 +103,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="collapsible.html">
+          <Link to="/logout">
             {log ? (
               <span>
                 <FaPowerOff size="2rem" color="black" />

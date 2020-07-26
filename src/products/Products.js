@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { ProductContext } from "../ProductContext";
 import { FaOpencart } from "react-icons/fa";
 import "./Products.css";
+import { Link } from "react-router-dom";
 
 export class Products extends Component {
   static contextType = ProductContext;
@@ -16,7 +17,7 @@ export class Products extends Component {
         <div className="allproducts">
           {products.map((product) => (
             <div
-              key={product.id}
+              key={product._id}
               className="card center"
               style={{ width: "300px" }}
             >
@@ -28,11 +29,11 @@ export class Products extends Component {
                 <span className="card-title">{product.name}</span>
               </div>
               <div className="card-content">
-                <p>R{product.prize}</p>
+                <p>R{product.price}</p>
               </div>
               <div>
                 <button
-                  onClick={() => this.context.addCart(product.id)}
+                  onClick={() => this.context.addCart(product._id)}
                   className="btn"
                 >
                   add to cart <FaOpencart size="2rem" color="white" />
@@ -41,6 +42,11 @@ export class Products extends Component {
             </div>
           ))}
         </div>
+        <Link to="/cart" className="center">
+          <button className="btn green">
+            go to cart <FaOpencart size="2rem" color="white" />
+          </button>
+        </Link>
       </div>
     );
   }

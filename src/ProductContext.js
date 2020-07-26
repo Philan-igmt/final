@@ -1,87 +1,27 @@
 import React, { Component } from "react";
-import uuid from "react-uuid";
+// import uuid from "react-uuid";
+import axios from "axios";
 
 export const ProductContext = React.createContext();
 
 export class ProductProvider extends Component {
-  state = {
-    products: [
-      {
-        name: "mathemathics",
-        count: 1,
-        id: uuid(),
-        prize: 500,
-        image:
-          "https://cdn.usborne.com/catalogue/covers/eng/max_covers/9781474959940-maths_scribble_book.jpg?width=960&mode=min ",
-      },
-      {
-        name: "physics",
-        count: 1,
-        id: uuid(),
-        prize: 300,
-        image:
-          "https://textbooktrader.co.za/files/000545/gallery/00/00/04/00000480_medium-240.jpg",
-      },
-      {
-        name: "biology",
-        count: 1,
-        id: uuid(),
-        prize: 400,
-        image: "https://covers.vitalbook.com/vbid/9780134446417/width/200",
-      },
-      {
-        name: "science",
-        count: 1,
-        id: uuid(),
-        prize: 200,
-        image:
-          "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRCdca1pmzrOKhI_SmnKex0PkSJ9-5H_BLxZA&usqp=CAU",
-      },
-      {
-        name: "science",
-        count: 1,
-        id: uuid(),
-        prize: 200,
-        image:
-          "https://upload.wikimedia.org/wikipedia/commons/6/6a/Science_Communication_%E2%80%93_schematic_overview.png",
-      },
-      {
-        name: "science",
-        count: 1,
-        id: uuid(),
-        prize: 200,
-        image:
-          "https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png",
-      },
-      {
-        name: "science",
-        count: 1,
-        id: uuid(),
-        prize: 200,
-        image:
-          "https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png",
-      },
-      {
-        name: "science",
-        count: 1,
-        id: uuid(),
-        prize: 200,
-        image:
-          "https://thumbs-prod.si-cdn.com/s-jZTk0XtVmp-89MlOgFXqaAVe4=/fit-in/1600x0/https://public-media.si-cdn.com/filer/29/0f/290fb8c0-1872-46e5-8c12-235742905def/science_smithsonian_magazine_booklist_2019.png",
-      },
-    ],
-    cart: [],
-    total: 0,
-  };
+  constructor() {
+    super();
+    this.state = {
+      products: [],
+      cart: [],
+      total: 0,
+    };
+  }
 
   addCart = (id) => {
     const { products, cart } = this.state;
     const check = cart.every((item) => {
-      return item.id !== id;
+      return item._id !== id;
     });
     if (check) {
       const data = products.filter((product) => {
-        return product.id === id;
+        return product._id === id;
       });
       this.setState({ cart: [...cart, ...data] });
     } else {
@@ -92,7 +32,7 @@ export class ProductProvider extends Component {
   add = (id) => {
     const { cart } = this.state;
     cart.forEach((item) => {
-      if (item.id === id) {
+      if (item._id === id) {
         item.count += 1;
       }
     });
@@ -103,7 +43,7 @@ export class ProductProvider extends Component {
   minus = (id) => {
     const { cart } = this.state;
     cart.forEach((item) => {
-      if (item.id === id) {
+      if (item._id === id) {
         item.count === 1 ? (item.count = 1) : (item.count -= 1);
       }
     });
@@ -114,7 +54,7 @@ export class ProductProvider extends Component {
   removeItem = (id) => {
     const { cart } = this.state;
     cart.forEach((item, index) => {
-      if (item.id === id) {
+      if (item._id === id) {
         cart.splice(index, 1);
       }
     });
@@ -125,7 +65,7 @@ export class ProductProvider extends Component {
   addTotal = () => {
     const { cart } = this.state;
     const results = cart.reduce((prev, product) => {
-      return prev + product.prize * product.count;
+      return prev + product.price * product.count;
     }, 0);
     this.setState({ total: results });
   };
@@ -145,6 +85,20 @@ export class ProductProvider extends Component {
     if (total_data !== null) {
       this.setState({ total: total_data });
     }
+
+    const me = async () => {
+      fetch("/products")
+        .then((res) => res.json())
+        .then(
+          (allProducts) =>
+            this.setState(
+              { products: allProducts },
+              console.log(`products fetched`, allProducts)
+            )
+          // console.log(allProducts)
+        );
+    };
+    me();
   }
 
   render() {

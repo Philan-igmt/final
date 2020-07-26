@@ -9,6 +9,7 @@ router.post("/", async (req, res) => {
     name: req.body.name,
     price: req.body.price,
     image: req.body.image,
+    count: req.body.count,
   });
   //save to database
   try {
@@ -23,7 +24,7 @@ router.post("/", async (req, res) => {
 router.get("/", async (req, res) => {
   try {
     const allProducts = await Product.find();
-    res.json(allProducts);
+    return res.json(allProducts);
   } catch (error) {
     res.json({ message: error });
   }
@@ -45,7 +46,9 @@ router.patch("/:productId", async (req, res) => {
 //delete a product from database
 router.delete("/:productId", async (req, res) => {
   try {
-    const removeProduct = await Product.remove({ _id: req.params.productId });
+    const removeProduct = await Product.deleteOne({
+      _id: req.params.productId,
+    });
     res.json(removeProduct);
   } catch (error) {
     res.json({ message: error });

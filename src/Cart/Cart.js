@@ -31,7 +31,7 @@ export class Cart extends Component {
       );
     } else {
       return (
-        <div className="row conatainer">
+        <div className="row">
           <div className="aboutdiv">
             <h3 className="thisabout center">Cart</h3>
           </div>
@@ -80,7 +80,7 @@ export class Cart extends Component {
           <div className="col s12 m6 offset-m1">
             <div className="cart">
               {cart.map((product) => (
-                <div key={product.id} className="card center">
+                <div key={product._id} className="card center">
                   <div className="card-image">
                     <img
                       src={product.image}
@@ -89,25 +89,25 @@ export class Cart extends Component {
                     <span className="card-title">{product.name}</span>
                   </div>
                   <div className="card-content">
-                    <p>R{product.prize * product.count}</p>
+                    <p>R{product.price * product.count}</p>
                   </div>
                   <div className="count">
                     <button
                       className="btn green"
-                      onClick={() => minus(product.id)}
+                      onClick={() => minus(product._id)}
                     >
                       -
                     </button>
                     <span className="span">{product.count}</span>
                     <button
                       className="btn count"
-                      onClick={() => add(product.id)}
+                      onClick={() => add(product._id)}
                     >
                       +
                     </button>
                   </div>
                   <button
-                    onClick={() => removeItem(product.id)}
+                    onClick={() => removeItem(product._id)}
                     className="btn delete"
                   >
                     remove item
@@ -117,7 +117,10 @@ export class Cart extends Component {
             </div>
             <div className="total">
               <h5>TOTAL:R{total}</h5>
-              <button className="btn ">pay</button>
+              <button className="btn red">pay</button>
+              <Link to="/products">
+                <button className="btn green">go back to products</button>
+              </Link>
             </div>
           </div>
         </div>

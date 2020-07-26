@@ -14,6 +14,9 @@ const ProductSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  count: {
+    type: Number,
+  },
 });
 
 module.exports = mongoose.model("Products", ProductSchema);
