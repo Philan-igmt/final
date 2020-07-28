@@ -11,7 +11,6 @@ import { FaPowerOff } from "react-icons/fa";
 import { FiEdit } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import { ProductContext } from "../ProductContext";
-import Register from "../register/Register";
 
 const Nav = () => {
   const state = useContext(ProductContext);
@@ -46,22 +45,9 @@ const Nav = () => {
           <li>
             <Link to="/products">Shop</Link>
           </li>
+
           <li>
-            <Link className="modal-trigger" onClick={state.register}>
-              {log ? (
-                <div>
-                  <span>logout</span>
-                  <span className="btn btn-floating green">PS</span>
-                </div>
-              ) : (
-                <span>login</span>
-              )}
-            </Link>
-          </li>
-          <li>
-            <Link>
-              {log ? <span></span> : <Link to="/register">Register</Link>}
-            </Link>
+            <Link to="/admin">Admin</Link>
           </li>
           <li>
             <Link
@@ -104,32 +90,9 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="/logout">
-            {log ? (
-              <span>
-                <FaPowerOff size="2rem" color="black" />
-                logout
-              </span>
-            ) : (
-              <span>
-                <FiLogIn size="2rem" color="black" />
-                login
-              </span>
-            )}
-          </Link>
+          <Link to="/admin">Admin</Link>
         </li>
-        <li>
-          <a className="modal-trigger" href="#modal1">
-            {log ? (
-              <span></span>
-            ) : (
-              <span>
-                <FiEdit size="2rem" color="black" />
-                Register
-              </span>
-            )}
-          </a>
-        </li>
+
         <li>
           <Link
             className="tooltipped"
@@ -142,8 +105,6 @@ const Nav = () => {
           </Link>
         </li>
       </ul>
-
-      {/* register modal */}
     </nav>
   );
 };

@@ -8,7 +8,6 @@ app.use(bodyParser.json());
 const ProductRoute = require("./routes/products");
 const BillFormRoute = require("./routes/billForm");
 const RegisterRoute = require("./routes/register");
-
 //using the routes
 app.use("/products", ProductRoute);
 app.use("/checkout", BillFormRoute);

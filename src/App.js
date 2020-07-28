@@ -11,6 +11,9 @@ import Cart from "./Cart/Cart";
 import Products from "./products/Products";
 import About from "./about/About";
 import { ProductProvider } from "./ProductContext";
+import ThankYou from "./success/ThankYou";
+import Register from "./register/Register";
+import Backend from "./backend/Backend";
 
 const App = () => {
   useEffect(() => {
@@ -27,6 +30,9 @@ const App = () => {
             <Route path="/about" component={About} />
             <Route path="/products" component={Products} />
             <Route path="/cart" component={Cart} />
+            <Route path="/thankyou" component={ThankYou} />
+            <Route path="/admin" component={Register} />
+            <Route path="/backend" component={Backend} />
           </Switch>
         </div>
       </ProductProvider>

@@ -14,7 +14,9 @@ function Home() {
         style={{ zIndex: "0" }}
         className="waves-effect waves-black btn-large red"
       >
-        <Link to="/products">Shop now</Link>
+        <Link className="shopnow" to="/products">
+          Shop now
+        </Link>
       </button>
     </div>
   );

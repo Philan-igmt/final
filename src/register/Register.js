@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
-import Nav from "../nav/Nav";
 import "materialize-css/dist/css/materialize.min.css";
 import M from "materialize-css/dist/js/materialize.min.js";
+import "./Regiser.css";
+import { Link } from "react-router-dom";
 
 function Register() {
   useEffect(() => {
@@ -10,15 +11,36 @@ function Register() {
   });
 
   return (
-    <div id="modal1" className="modal">
-      <div className="modal-content">
-        <h4>Modal Header</h4>
-        <p>A bunch of text</p>
-      </div>
-      <div className="modal-footer">
-        <a href="#!" className="modal-close waves-effect waves-green btn-flat">
-          Agree
-        </a>
+    <div className="allform">
+      <div className="form">
+        <form>
+          <fieldset>
+            <legend>login as the admin</legend>
+            <div>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                className="validate"
+                required
+              />
+              <label htmlFor="email">email address</label>
+            </div>
+            <div>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                className="validate"
+                required
+              />
+              <label htmlFor="password">password</label>
+            </div>
+            <button className="btn green" type="submit">
+              login
+            </button>
+          </fieldset>
+        </form>
       </div>
     </div>
   );

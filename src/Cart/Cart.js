@@ -3,9 +3,35 @@ import { ProductContext } from "../ProductContext";
 import { Link } from "react-router-dom";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import "./Cart.css";
+import Form from "./Form";
 
 export class Cart extends Component {
   static contextType = ProductContext;
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      first_name: "",
+      last_name: "",
+      street_address: "",
+      town: "",
+      province: "",
+      zip_code: "",
+      phone_number: "",
+      email: "",
+    };
+  }
+
+  changes = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  submitBill = (e) => {
+    e.preventDeafault();
+    console.log(this.state);
+  };
 
   componentDidMount() {
     this.context.addTotal();
@@ -37,45 +63,9 @@ export class Cart extends Component {
           <div className="aboutdiv">
             <h3 className="thisabout center">Cart</h3>
           </div>
-          <div className="form">
+          <div className="formm">
             <div className="col s12 m4 offset-m1">
-              <fieldset>
-                <legend> Bill and delivery information </legend>
-                <form action="">
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                  <div>
-                    <input type="text" name="name" id="name" />
-                    <label htmlFor="name">Full Name</label>
-                  </div>
-                </form>
-              </fieldset>
+              <Form />
             </div>
           </div>
 
@@ -119,7 +109,10 @@ export class Cart extends Component {
             </div>
             <div className="total">
               <h5>TOTAL:R{total}</h5>
-              <button className="btn red">pay</button>
+              <Link to="/thankyou">
+                <button className="btn red">pay</button>
+              </Link>
+
               <Link to="/products">
                 <button className="btn green">go back to products</button>
               </Link>
