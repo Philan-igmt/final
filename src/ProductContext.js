@@ -105,7 +105,7 @@ export class ProductProvider extends Component {
 
   render() {
     const { products, cart, total } = this.state;
-    const { addCart, minus, add, removeItem, addTotal, submitBill } = this;
+    const { addCart, minus, add, removeItem, addTotal } = this;
     return (
       <ProductContext.Provider
         value={{
@@ -117,7 +117,6 @@ export class ProductProvider extends Component {
           minus,
           add,
           addTotal,
-          submitBill,
         }}
       >
         {this.props.children}

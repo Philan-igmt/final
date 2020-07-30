@@ -4,16 +4,12 @@ import axios from "axios";
 
 export class Form extends Component {
   static contextType = ProductContext;
+
   constructor(props) {
     super();
     this.state = {
-      firstname: "",
-      lastname: "",
-      street: "",
-      town: "",
-      province: "",
-      zipcode: "",
-      phonenumber: "",
+      name: "",
+      surname: "",
     };
   }
 
@@ -24,90 +20,91 @@ export class Form extends Component {
   };
 
   submit = (event) => {
-    fetch("/checkout", {
-      method: "POST",
-      // We convert the React state to JSON and send it as the POST body
-      body: JSON.stringify(this.state),
-    }).then(function (response) {
-      console.log(response);
-      return response.json();
-    });
-
     event.preventDefault();
-    console.log(this.state);
+
+    const info = {
+      name: this.state.name,
+      surname: this.state.surname,
+    };
+
+    console.log(info);
+
+    // axios.post("/checkout", info).then((res) => console.log(res.data));
+
+    this.setState({
+      name: "",
+      surname: "",
+    });
   };
 
   render() {
-    const {
-      firstname,
-      lastname,
-      street,
-      town,
-      province,
-      zipcode,
-      phonenumber,
-    } = this.state;
-
     return (
       <div>
         <form onSubmit={this.submit}>
-          <input
-            type="text"
-            name="firstname"
-            id="firstname"
-            // value={firstname}
-            onChange={this.handle}
-          />
-          <label htmlFor="firstname">first name</label>
-          <input
-            type="text"
-            name="lastname"
-            id="lastname"
-            // value={lastname}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">last name</label>
-          <input
-            type="text"
-            name="street"
-            id="street"
-            // value={street}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">address</label>
-          <input
-            type="text"
-            name="town"
-            id="town"
-            // value={town}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">town</label>
-          <input
-            type="text"
-            name="province"
-            id="province"
-            // value={province}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">province</label>
-          <input
-            type="number"
-            name="zipcode"
-            id="zipcode"
-            // value={zipcode}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">zipcode</label>
-          <input
-            type="number"
-            name="phonenumber"
-            id="phonenumber"
-            // value={phonenumber}
-            onChange={this.handle}
-          />
-          <label htmlFor="lastname">phonenumber</label>
-          <button type="submit">submit</button>
+          <fieldset>
+            <legend>Delivery information</legend>
+            <label htmlFor="name">first name</label>
+            <input
+              type="text"
+              name="info"
+              id="info"
+              value={this.state.name}
+              onChange={this.handle}
+            />
+            <label htmlFor="surname">last name</label>
+            <input
+              type="text"
+              name="surname"
+              id="surname"
+              value={this.state.surname}
+              onChange={this.handle}
+            />
+            {/*<label htmlFor="lastname">address</label>
+            <input
+              type="text"
+              name="street"
+              id="street"
+              // value={street}
+              onChange={this.handle}
+            />
+            <label htmlFor="lastname">town</label>
+            <input
+              type="text"
+              name="town"
+              id="town"
+              // value={town}
+              onChange={this.handle}
+            />
+            <label htmlFor="lastname">province</label>
+            <input
+              type="text"
+              name="province"
+              id="province"
+              // value={province}
+              onChange={this.handle}
+            />
+            <label htmlFor="lastname">zipcode</label>
+            <input
+              type="number"
+              name="zipcode"
+              id="zipcode"
+              // value={zipcode}
+              onChange={this.handle}
+            />
+            <label htmlFor="lastname">phonenumber</label>
+            <input
+              type="number"
+              name="phonenumber"
+              id="phonenumber"
+              // value={phonenumber}
+              onChange={this.handle}
+            /> */}
+
+            <br />
+            <button className="btn green" type="submit">
+              submit
+            </button>
+          </fieldset>
         </form>
       </div>
     );
