@@ -8,20 +8,6 @@ import Form from "./Form";
 export class Cart extends Component {
   static contextType = ProductContext;
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      first_name: "",
-      last_name: "",
-      street_address: "",
-      town: "",
-      province: "",
-      zip_code: "",
-      phone_number: "",
-      email: "",
-    };
-  }
-
   changes = (e) => {
     this.setState({
       [e.target.name]: e.target.value,

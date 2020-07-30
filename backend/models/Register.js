@@ -5,11 +5,10 @@ const RegisterSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-
   password: {
     type: String,
     required: true,
   },
 });
 
-module.export = mongoose.model("UserRegister", RegisterSchema);
+module.exports = mongoose.model("UserRegister", RegisterSchema);

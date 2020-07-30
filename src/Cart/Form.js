@@ -10,6 +10,12 @@ export class Form extends Component {
     this.state = {
       name: "",
       surname: "",
+      address: "",
+      town: "",
+      province: "",
+      postal: "",
+      phone: "",
+      email: "",
     };
   }
 
@@ -21,19 +27,27 @@ export class Form extends Component {
 
   submit = (event) => {
     event.preventDefault();
+    const { cart } = this.context;
 
+    //this is for the database
     const info = {
-      name: this.state.name,
-      surname: this.state.surname,
+      firstname: this.state.name,
+      lastname: this.state.surname,
+      streetaddress: this.state.address,
+      town: this.state.town,
+      province: this.state.province,
+      postalcode: this.state.postal,
+      phone: this.state.phone,
+      email: this.state.email,
+      cart: cart,
     };
 
     console.log(info);
 
-    // axios.post("/checkout", info).then((res) => console.log(res.data));
+    axios.post("/checkout", info).then((res) => console.log(res.data));
 
     this.setState({
       name: "",
-      surname: "",
     });
   };
 
@@ -46,7 +60,7 @@ export class Form extends Component {
             <label htmlFor="name">first name</label>
             <input
               type="text"
-              name="info"
+              name="name"
               id="info"
               value={this.state.name}
               onChange={this.handle}
@@ -59,12 +73,12 @@ export class Form extends Component {
               value={this.state.surname}
               onChange={this.handle}
             />
-            {/*<label htmlFor="lastname">address</label>
+            <label htmlFor="lastname">address</label>
             <input
               type="text"
-              name="street"
-              id="street"
-              // value={street}
+              name="address"
+              id="address"
+              value={this.state.address}
               onChange={this.handle}
             />
             <label htmlFor="lastname">town</label>
@@ -72,7 +86,7 @@ export class Form extends Component {
               type="text"
               name="town"
               id="town"
-              // value={town}
+              value={this.state.town}
               onChange={this.handle}
             />
             <label htmlFor="lastname">province</label>
@@ -80,25 +94,33 @@ export class Form extends Component {
               type="text"
               name="province"
               id="province"
-              // value={province}
+              value={this.state.province}
               onChange={this.handle}
             />
             <label htmlFor="lastname">zipcode</label>
             <input
               type="number"
-              name="zipcode"
-              id="zipcode"
-              // value={zipcode}
+              name="postal"
+              id="postal"
+              value={this.state.postal}
               onChange={this.handle}
             />
             <label htmlFor="lastname">phonenumber</label>
             <input
               type="number"
-              name="phonenumber"
-              id="phonenumber"
-              // value={phonenumber}
+              name="phone"
+              id="phone"
+              value={this.state.phone}
               onChange={this.handle}
-            /> */}
+            />
+            <label htmlFor="lastname">email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={this.state.email}
+              onChange={this.handle}
+            />
 
             <br />
             <button className="btn green" type="submit">

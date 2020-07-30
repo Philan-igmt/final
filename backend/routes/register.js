@@ -1,22 +1,20 @@
 const express = require("express");
 const router = express.Router();
 
-//importing the model
-const User = require("../models/Register");
+// importing the model
+const UserForm = require("../models/Register");
 
-// //creating a new user
-router.post("/", async (req, res) => {
-  const user = new User({
-    username: req.body.username,
-    password: req.body.password,
-  });
-  //save to database
-  try {
-    const Userr = await user.save();
-    res.json(Userr);
-  } catch (error) {
-    res.json({ message: error });
-  }
+// to create a form
+router.post("/", (req, res) => {
+  const username = req.body.username;
+  const password = req.body.password;
+
+  const newUser = new UserForm({ username, password });
+
+  newUser
+    .save()
+    .then(() => res.json("user added"))
+    .catch((err) => res.json("error " + err));
 });
 
 module.exports = router;
