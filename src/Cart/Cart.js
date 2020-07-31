@@ -95,9 +95,6 @@ export class Cart extends Component {
             </div>
             <div className="total">
               <h5>TOTAL:R{total}</h5>
-              <Link to="/thankyou">
-                <button className="btn red">pay</button>
-              </Link>
 
               <Link to="/products">
                 <button className="btn green">go back to products</button>

@@ -64,6 +64,8 @@ export class Form extends Component {
               id="info"
               value={this.state.name}
               onChange={this.handle}
+              required
+              placeholder="Philani"
             />
             <label htmlFor="surname">last name</label>
             <input
@@ -72,6 +74,8 @@ export class Form extends Component {
               id="surname"
               value={this.state.surname}
               onChange={this.handle}
+              required
+              placeholder="sithembiso"
             />
             <label htmlFor="lastname">address</label>
             <input
@@ -80,6 +84,8 @@ export class Form extends Component {
               id="address"
               value={this.state.address}
               onChange={this.handle}
+              required
+              placeholder="314 Imam Haron Rd, Lansdowne,"
             />
             <label htmlFor="lastname">town</label>
             <input
@@ -88,6 +94,8 @@ export class Form extends Component {
               id="town"
               value={this.state.town}
               onChange={this.handle}
+              required
+              placeholder="Cape town"
             />
             <label htmlFor="lastname">province</label>
             <input
@@ -96,6 +104,8 @@ export class Form extends Component {
               id="province"
               value={this.state.province}
               onChange={this.handle}
+              required
+              placeholder="Western Cape"
             />
             <label htmlFor="lastname">zipcode</label>
             <input
@@ -104,6 +114,8 @@ export class Form extends Component {
               id="postal"
               value={this.state.postal}
               onChange={this.handle}
+              required
+              placeholder="7500"
             />
             <label htmlFor="lastname">phonenumber</label>
             <input
@@ -112,6 +124,8 @@ export class Form extends Component {
               id="phone"
               value={this.state.phone}
               onChange={this.handle}
+              required
+              placeholder="0125465734"
             />
             <label htmlFor="lastname">email</label>
             <input
@@ -120,6 +134,8 @@ export class Form extends Component {
               id="email"
               value={this.state.email}
               onChange={this.handle}
+              required
+              placeholder="philanisithembiso@gmail.com"
             />
 
             <br />
