@@ -48,6 +48,13 @@ export class Form extends Component {
 
     this.setState({
       name: "",
+      surname: "",
+      address: "",
+      town: "",
+      province: "",
+      postal: "",
+      phone: "",
+      email: "",
     });
   };
 
@@ -107,6 +114,7 @@ export class Form extends Component {
               required
               placeholder="Western Cape"
             />
+
             <label htmlFor="lastname">zipcode</label>
             <input
               type="number"

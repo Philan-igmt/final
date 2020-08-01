@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import "./Backend.css";
 import { ProductContext } from "../ProductContext";
+import { useForm } from "react-hook-form";
+import axios from "axios";
+import Upadate from "./Upadate";
 
-function Backend() {
+const Backend = () => {
   const state = useContext(ProductContext);
   const list = state.products.map((item) => (
     <div key={item._id}>
@@ -13,6 +16,18 @@ function Backend() {
     </div>
   ));
 
+  const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    const book = {
+      name: data.name,
+      price: data.price,
+      image: data.imageURL,
+    };
+    console.log(book);
+    axios.post("/products", book).then((res) => console.log(res.data));
+  };
+
   return (
     <div className="backend">
       <h2>Hello admin</h2>
@@ -22,22 +37,23 @@ function Backend() {
           <ul>{list}</ul>
         </div>
         <div className="addproduct">
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <fieldset>
               <legend>add a book</legend>
               <label htmlFor="price">price</label>
-              <input type="number" name="price" id="price" />
+              <input type="number" name="price" id="price" ref={register} />
               <label htmlFor="name">name</label>
-              <input type="text" name="name" id="name" />
+              <input type="text" name="name" id="name" ref={register} />
               <label htmlFor="imageURL">imageURL</label>
-              <input type="text" name="imageURL" id="imageURL" />
+              <input type="text" name="imageURL" id="imageURL" ref={register} />
               <button className="btn green">Add</button>
             </fieldset>
           </form>
         </div>
+        <Upadate />
       </div>
     </div>
   );
-}
+};
 
 export default Backend;
