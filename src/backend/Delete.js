@@ -6,14 +6,14 @@ function Delete() {
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data) => {
-    const updated = {
+    const book = {
       name: data.name,
       price: data.price,
       image: data.imageURL,
     };
     console.log(data);
     axios
-      .delete(`/products/${data.id}`, updated)
+      .delete(`/products/${data.id}`, book)
       .then((res) => console.log(res.data));
   };
   return (

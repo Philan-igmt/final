@@ -42,11 +42,23 @@ const Backend = () => {
             <fieldset>
               <legend>add a book</legend>
               <label htmlFor="price">price</label>
-              <input type="number" name="price" id="price" ref={register} />
+              <input
+                type="number"
+                name="price"
+                id="price"
+                placeholder="e.g 500"
+                ref={register}
+              />
               <label htmlFor="name">name</label>
               <input type="text" name="name" id="name" ref={register} />
               <label htmlFor="imageURL">imageURL</label>
-              <input type="text" name="imageURL" id="imageURL" ref={register} />
+              <input
+                type="text"
+                name="imageURL"
+                id="imageURL"
+                placeholder='this take the URL without "inverted commas" e.g https://imageUrl '
+                ref={register}
+              />
               <button className="btn green">Add</button>
             </fieldset>
           </form>

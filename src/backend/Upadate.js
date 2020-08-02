@@ -14,7 +14,7 @@ const Upadate = () => {
     };
     console.log(data);
     axios
-      .delete(`/products/${data.id}`, updated)
+      .patch(`/products/${data.id}`, updated)
       .then((res) => console.log(res.data));
   };
   return (
@@ -27,18 +27,31 @@ const Upadate = () => {
             type="text"
             name="id"
             id="id"
+            required
             placeholder="copy and past the book url and past it here"
             ref={register}
           />
 
           <label htmlFor="name">name</label>
-          <input type="text" name="name" id="name" ref={register} />
+          <input type="text" name="name" id="name" ref={register} required />
 
           <label htmlFor="id">Price</label>
-          <input type="text" name="price" id="price" ref={register} />
+          <input
+            type="number"
+            name="price"
+            id="price"
+            ref={register}
+            required
+          />
 
           <label htmlFor="id">ImageURL</label>
-          <input type="text" name="imageURL" id="imageURL" ref={register} />
+          <input
+            type="text"
+            name="imageURL"
+            id="imageURL"
+            ref={register}
+            required
+          />
 
           <button type="submit" className="btn green">
             {" "}

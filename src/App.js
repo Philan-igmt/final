@@ -32,8 +32,8 @@ const App = () => {
             <Route path="/products" component={Products} />
             <Route path="/cart" component={Cart} />
             <Route path="/thankyou" component={ThankYou} />
-            <Route path="/admin" component={Register} />
-            <Route path="/backend" component={Backend} />
+            <Route path="/admin" component={Backend} />
+            {/* <Route path="/backend" component={Backend} /> */}
           </Switch>
         </div>
       </ProductProvider>
