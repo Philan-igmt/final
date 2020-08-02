@@ -84,10 +84,7 @@ const Nav = () => {
           </Link>
         </li>
         <li>
-          <Link to="collapsible.html">
-            <FaShopify size="2rem" color="black" />
-            Shop
-          </Link>
+          <Link to="/products">Shop</Link>
         </li>
         <li>
           <Link to="/admin">Admin</Link>

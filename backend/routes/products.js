@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const auth = require("../middleware/auth");
 
 const Product = require("../models/Product");
 
 //to add the product
-router.post("/", async (req, res) => {
+router.post("/", auth, async (req, res) => {
   const product = new Product({
     name: req.body.name,
     price: req.body.price,
@@ -30,7 +31,7 @@ router.get("/", async (req, res) => {
 });
 
 //update a product
-router.patch("/:productId", async (req, res) => {
+router.patch("/:productId", auth, async (req, res) => {
   try {
     const updatedProduct = await Product.updateOne(
       { _id: req.params.productId },
@@ -43,7 +44,7 @@ router.patch("/:productId", async (req, res) => {
 });
 
 //delete a product from database
-router.delete("/:productId", async (req, res) => {
+router.delete("/:productId", auth, async (req, res) => {
   try {
     const removeProduct = await Product.deleteOne({
       _id: req.params.productId,

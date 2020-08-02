@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { ProductContext } from "../ProductContext";
 
 const Upadate = () => {
+  const state = useContext(ProductContext);
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
     console.log(data);
