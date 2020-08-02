@@ -4,6 +4,7 @@ import { ProductContext } from "../ProductContext";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import Upadate from "./Upadate";
+import Delete from "./Delete";
 
 const Backend = () => {
   const state = useContext(ProductContext);
@@ -51,6 +52,7 @@ const Backend = () => {
           </form>
         </div>
         <Upadate />
+        <Delete />
       </div>
     </div>
   );

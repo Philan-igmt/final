@@ -17,9 +17,10 @@ import Backend from "./backend/Backend";
 
 const App = () => {
   useEffect(() => {
-    //initializing materialize css JS
+    //initializing materialize css
     M.AutoInit();
   });
+
   return (
     <Router>
       <ProductProvider>

@@ -4,6 +4,7 @@ import M from "materialize-css/dist/js/materialize.min.js";
 import "./Regiser.css";
 import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import axios from "axios";
 
 function Register() {
   useEffect(() => {
@@ -13,7 +14,18 @@ function Register() {
 
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
+    const user = {
+      username: data.username,
+      password: data.password,
+    };
+    console.log(user);
+    axios.post("/register/", user).then((response) => {
+      if (response.data.accessToken) {
+        localStorage.setItem("user", JSON.stringify(response.data));
+      }
+      window.location = "/backend";
+      return response.data;
+    });
   };
   return (
     <div className="allform">
