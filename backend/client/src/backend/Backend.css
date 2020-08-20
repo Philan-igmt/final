@@ -1,0 +1,38 @@
+.backend {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.list {
+  border: black 2px dotted;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.bookComing {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  flex-wrap: wrap;
+}
+.bcard {
+  border: 2px solid black;
+  width: 200px;
+}
+
+.leg {
+  padding: 0 20px;
+}
+
+.delForm {
+  padding: 30px 0;
+}

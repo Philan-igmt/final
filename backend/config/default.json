@@ -1,3 +1,4 @@
 {
+  "mongoURI":"mongodb+srv://philani123:philani123@ecommerce.uvb4e.mongodb.net/<dbname>?retryWrites=true&w=majority",
   "jwtSecret": "secret"
 }
